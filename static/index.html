@@ -501,7 +501,11 @@
       const editMode=document.getElementById("custom-engine-modal-title").textContent==="Edit Search Engine";
       const originalUrl=document.getElementById("custom-engine-modal").dataset.originalUrl;
       if(!customName||!customUrl){alert("Please provide both a name and URL for the custom search engine");return}
-      if(!customUrl.includes("%s")){if(!confirm('Your URL doesn\\'t contain a "%s" placeholder. The search term will be appended to the end. Is this okay?')){return}}
+      if (!customUrl.includes("%s")) {
+  if (!confirm("Your URL doesn't contain a \"%s\" placeholder. The search term will be appended to the end. Is this okay?")) {
+    return;
+  }
+}
       const dropdownContent=document.querySelector(".dropdown-contentaa");
       if(editMode){
         const existingEngine=document.querySelector('.dropdown-contentaa a[data-engine="'+originalUrl+'"]');
