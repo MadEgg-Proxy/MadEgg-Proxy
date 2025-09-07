@@ -1,1703 +1,164 @@
-<html>
+<html lang="en">
 <head>
-  <title>Home</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..400,0..1">
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gointerstellar.app&size=256">
+  <title>MadEgg Browser</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Freeman&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/x-icon" href="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://gointerstellar.app&size=256">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Future", Future, serif;
-  background-image: var(--background-image, url(https://images.weserv.nl/?url=cdn.dribbble.com/users/234525/screenshots/5853076/eggsacrosstheuniverse.jpg));
-  background-size: cover;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  overflow: hidden;
-  padding: 10px;
-}
-
-h1 {
-  font-family: "Future", Future, serif;
-  font-size: 2.2rem;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  text-align: center;
-  transition: transform 0.3s ease;
-  
-}
-
-h1:hover {
-  transform: scale(1.1);
-}
-
-.time-date {
-  font-family: "Future", Future, serif;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease;
-  
-}
-
-.time-date:hover {
-  transform: scale(1.1);
-}
-
-.search-container {
-  width: 80%;
-  max-width: 600px;
-  text-align: center;
-  margin-bottom: 15px;
-}
-
-.input {
-  font-family: "Future", Future, serif;
-  width: 100%;
-  padding: 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Future", Future, serif;
-}
-
-.input:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.search-box {
-  text-align: center;
-  margin-bottom: 15px;
-  
-}
-
-#uv-address {
-  font-family: "Future", Future, serif;
-  width: 705px;
-  padding: 20px;
-  border: none;
-  border-radius: 20px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-#uv-address::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Future", Future, serif;
-}
-
-#uv-address:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.bookmarks {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: enterBookmarks 1s forwards 0.5s;
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
-  margin-top: 15px;
-  
-}
-
-.bookmark {
-  margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 10px;
-  border-radius: 15px;
-  width: 120px;
-  height: 120px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.bookmark img {
-  margin: auto;
-  height: 40px;
-  width: auto;
-  transition: transform 0.3s ease;
-}
-
-.bookmark span {
-  font-size: 0.9rem;
-  margin: auto;
-  font-family: "Future", Future, serif;
-}
-
-.bookmark:hover {
-  transform: scale(1.05);
-  background: rgba(255, 255, 255, 0.3);
-}
-
-.bookmark img:hover {
-  transform: rotate(10deg) scale(1.1);
-}
-
-@keyframes show-proxy-div {
-  from {
-    bottom: -100vh;
-    top: 100vh;
-  }
-  to {
-    bottom: 0;
-    top: 0;
-  }
-}
-
-@keyframes hide-proxy-div {
-  from {
-    bottom: 0;
-    top: 0;
-    display: block;
-  }
-  to {
-    bottom: -100vh;
-    top: 100vh;
-    display: block;
-  }
-}
-
-#proxy-div {
-  transition: background-color 0.5s;
-}
-
-.hide-proxy-div {
-  display: none;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(30, 35, 55);
-  animation-name: hide-proxy-div;
-  animation-duration: 0.5s;
-  z-index: 10;
-}
-
-.show-proxy-div {
-  display: block;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  margin: 0;
-  padding: 0;
-  background-color: rgb(255, 255, 255);
-  animation-name: show-proxy-div;
-  animation-duration: 0.5s;
-  z-index: 10;
-}
-
-.tab {
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: calc(100vh - 40px);
-  border: none;
-  background-color: inherit;
-  display: none;
-}
-
-#proxy-nav-bar {
-  height: 45px;
-  background-color: rgb(35, 45, 75);
-  color: rgb(255, 255, 255);
-  width: 100%;
-  overflow: hidden;
-}
-
-#proxy-button-row {
-  display: flex;
-  color: rgb(255, 255, 255);
-  gap: 10px;
-  background-color: rgb(61 74 112);
-  height: 41px;
-  align-items: center;
-  width: 100%;
-  overflow: hidden;
-}
-
-#nav-bar-address {
-  width: calc(100vw - 293px);
-  height: 30px;
-  font-size: 16px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  margin-left: 15px;
-  border: none;
-  color: rgb(255, 247, 206);
-  background-color: rgb(35, 45, 75);
-  transition: background-color 0.3s;
-  border-radius: 10px;
-  padding: 8px;
-}
-
-#nav-bar-address:focus {
-  background-color: rgb(55, 65, 95);
-}
-
-#nav-bar-form {
-  height: 40px;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-}
-
-.tabBarTab {
-  position: relative;
-  padding: 10px 20px;
-  background-color: transparent;
-  border-radius: 8px 8px 0 0;
-  color: rgb(255, 230, 100);
-  cursor: pointer;
-  transition: all 0.2s ease;
-  height: 40px;
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: space-between;
-  min-width: 200px;
-  max-width: 225px;
-  margin-left: 5px;
-  padding: 8px 16px;
-  float: left;
-  width: auto;
-  border: none;
-  display: block;
-  outline: 0;
-}
-
-.tabBarTab.active {
-  background-color: rgb(62 74 112) !important;
-  color: rgb(255, 255, 255) !important;
-  cursor: default;
-}
-
-.tabBarTab:hover:not(.active) {
-  background-color: rgb(49 67 123);
-  border-radius: 16px;
-  color: rgb(255, 255, 250);
-  height: 36px !important;
-  transform: translateY(-5px);
-}
-
-.tab-content {
-  display: flex;
-  align-items: center;
-  width: calc(100% - 20px);
-  overflow: hidden;
-}
-
-.tab-favicon {
-  width: 25px;
-  height: 25px;
-  margin-right: 6px;
-  object-fit: contain;
-}
-
-.tab-title {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  padding-right: 4px;
-}
-
-.tab-close {
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-}
-
-.tab-close:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-#newTab {
-  height: 40px;
-  width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  background: none;
-  border-radius: 8px;
-  margin: 5px 0 5px 4px;
-  padding: 8px 16px;
-  float: left;
-  width: auto;
-  border: none;
-}
-
-#tabBarTabs {
-  margin: 0;
-  padding: 0;
-}
-
-.proxy-nav-bar-item {
-  color: rgb(255, 230, 100);
-  padding: 8px 16px;
-  float: left;
-  width: auto;
-  border: none;
-  display: block;
-  outline: 0;
-}
-
-.tabBarTab .fa-xmark:hover {
-  color: rgb(255, 255, 180);
-}
-
-.tabBarTab .fa-xmark {
-  color: rgb(255, 230, 100);
-  background: transparent;
-}
-
-#newTab {
-  color: rgb(255, 230, 100);
-}
-
-#newTab:hover {
-  animation: bounce 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-arrow-right:hover {
-  cursor: pointer;
-  animation: bounceForward 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-arrow-left:hover {
-  cursor: pointer;
-  animation: bounceBackward 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-redo:hover {
-  cursor: pointer;
-  animation: spin 0.7s forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-home:hover {
-  cursor: pointer;
-  animation: bounce 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-up-right-from-square:hover {
-  animation: bounce 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-#proxy-button-row .fa-expand:hover {
-  animation: bounce 0.5s ease-out forwards;
-  color: rgb(255, 255, 180);
-}
-
-@keyframes bounceForward {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(4.6px); }
-  50% { transform: translateX(-2px); }
-  70% { transform: translateX(1px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes bounceBackward {
-  0% { transform: translateX(0); }
-  30% { transform: translateX(-4.6px); }
-  50% { transform: translateX(2px); }
-  70% { transform: translateX(-1px); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes bounce {
-  0% { transform: scale(1) translateZ(0); }
-  30% { transform: scale(1.07) translateZ(15px); }
-  50% { transform: scale(0.9) translateZ(5px); }
-  70% { transform: scale(1.07) translateZ(8px); }
-  100% { transform: scale(1) translateZ(0); }
-}
-
-.add-bookmark {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  cursor: pointer;
-  font-family: "Future", Future, serif;
-  font-size: 1rem;
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
-  width: 120px;
-  height: 120px;
-}
-
-.add-bookmark:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.add-bookmark-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-}
-
-.add-bookmark-content {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  width: 400px;
-  max-width: 90%;
-}
-
-.add-bookmark-content h3 {
-  font-family: "Future", Future, serif;
-  margin-bottom: 15px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.add-bookmark-content input {
-  font-family: "Future", Future, serif;
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 15px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.add-bookmark-content input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Future", Future, serif;
-}
-
-.add-bookmark-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.add-bookmark-buttons button {
-  font-family: "Future", Future, serif;
-  padding: 12px;
-  border: none;
-  border-radius: 15px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  flex: 1;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.add-bookmark-buttons button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.bookmark {
-  position: relative;
-}
-
-.delete-bookmark {
-  position: absolute;
-  top: -8px;
-  right: -8px;
-  background: rgba(244, 67, 54, 0.9);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 10px;
-  cursor: pointer;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-
-.bookmark:hover .delete-bookmark {
-  display: flex;
-}
-
-.delete-bookmark:hover {
-  background: rgba(244, 67, 54, 1);
-}
-
-.custom-engine-modal {
-  display: none;
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-
-  justify-content: center;
-  align-items: center;
-}
-
-.custom-engine-content {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  padding: 20px;
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
-  width: 400px;
-  max-width: 90%;
-}
-
-.custom-engine-content h3 {
-  font-family: "Future", Future, serif;
-  margin-bottom: 15px;
-  text-align: center;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-}
-
-.custom-engine-content input {
-  font-family: "Future", Future, serif;
-  width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
-  border: none;
-  border-radius: 15px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.custom-engine-content input::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Future", Future, serif;
-}
-
-.custom-engine-content input:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.custom-engine-content input:focus {
-  background: rgba(255, 255, 255, 0.3);
-  outline: none;
-}
-
-.custom-engine-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-}
-
-@font-face {
-  font-family: 'Future';
-  src: url('futur.ttf') format('truetype');
-  font-style: normal;
-  font-weight: normal;
-}
-
-.custom-engine-buttons button {
-  font-family: "Future", Future, serif;
-  padding: 12px;
-  border: none;
-  border-radius: 15px;
-  font-size: 1rem;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
-  flex: 1;
-}
-
-.custom-engine-buttons button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-}
-
-.delete-engine {
-  float: right;
-  color: rgba(255, 107, 107, 0.7);
-  cursor: pointer;
-  margin-left: 10px;
-  transition: color 0.3s ease;
-}
-
-.delete-engine:hover {
-  color: rgba(255, 82, 82, 1);
-}
-
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 999;
-  display: none;
-}
-
-.search-containeraa {
-  display: flex;
-  align-content: center;
-  position: relative;
-}
-
-.search-engine-dropdownaa {
-  position: relative;
-  margin-right: 10px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-  z-index: 2;
-  width: 61px;
-  cursor: pointer;
-  backdrop-filter: blur(10px);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.search-engine-dropdownaa:hover {
-  background: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-}
-
-.search-engine-dropdownaa img {
-  width: 38px;
-  height: 38px;
-}
-
-.dropdown-contentaa {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.2);
-  min-width: 250px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  padding: 0;
-  z-index: 1;
-  backdrop-filter: blur(10px);
-  margin-top: 10px;
-}
-
-.dropdown-contentaa .status-messageaa {
-  color: #f1f1f1;
-  padding: 14px;
-  background-color: rgba(255, 255, 255, 0.2);
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-}
-
-.dropdown-contentaa a {
-  color: #fff;
-  padding: 12px;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dropdown-contentaa a:hover {
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-.dropdown-contentaa a img {
-  width: 28px;
-  height: 28px;
-}
-
-.dropdown-contentaa a:last-child:hover {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
-}
-
-.top-right-menu, .top-left-menu {
-  position: absolute;
-  top: 10px;
-}
-
-.top-right-menu {
-  right: 10px;
-}
-
-.top-left-menu {
-  left: 10px;
-}
-
-.menu-button {
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
-  border-radius: 25px;
-  cursor: pointer;
-  font-family: "Future", Future, serif;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-  transition: background 0.3s ease, transform 0.3s ease;
-  border-color: transparent;
-}
-
-.menu-button:hover {
-  background: rgba(255, 255, 255, 0.3);
-  transform: scale(1.1);
-}
-
-.rotating-text {
-  font-family: "Future", Future, serif;
-  font-size: 1.5rem;
-  color: white;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  margin-top: 20px;
-  min-height: 2em;
-  
-}
-
-@keyframes enterBookmarks {
-  to {
-    opacity: 1;
-    backdrop-filter: blur(1px);
-  }
-}
-
-.edit-bookmark {
-  position: absolute;
-  top: -8px;
-  left: -8px;
-  background: rgba(220, 220, 220, 0.9);
-  color: #333;
-  border: none;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  font-size: 10px;
-  cursor: pointer;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-}
-
-.bookmark:hover .edit-bookmark {
-  display: flex;
-}
-
-.edit-bookmark:hover {
-  background: rgba(240, 240, 240, 1);
-}
-
-.bookmark-actions {
-  display: none;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  gap: 5px;
-}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Futura","Trebuchet MS",Arial,sans-serif;
+      background-image:var(--background-image, url(https://images.weserv.nl/?url=cdn.dribbble.com/users/234525/screenshots/5853076/eggsacrosstheuniverse.jpg));
+      background-size:cover;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;color:#fff;overflow:hidden;padding:10px
+    }
+    h1{
+      font-family:"Futura","Trebuchet MS",Arial,sans-serif;
+      font-size:2.2rem;margin-bottom:15px;text-shadow:0 0 10px rgba(0,0,0,.8);text-align:center;transition:transform .3s ease
+    }
+    h1:hover{transform:scale(1.1)}
+    .time-date{
+      font-family:"Futura","Trebuchet MS",Arial,sans-serif;
+      font-size:1.2rem;margin-bottom:15px;text-shadow:0 0 10px rgba(0,0,0,.8);transition:transform .3s ease
+    }
+    .time-date:hover{transform:scale(1.1)}
+    .search-container{width:80%;max-width:600px;text-align:center;margin-bottom:15px}
+    .input{
+      font-family:"Futura","Trebuchet MS",Arial,sans-serif;
+      width:100%;padding:20px;border:none;border-radius:20px;font-size:1rem;backdrop-filter:blur(10px);background:rgba(255,255,255,.2);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,box-shadow .3s ease
+    }
+    .input::placeholder{color:rgba(255,255,255,.7);font-family:"Futura","Trebuchet MS",Arial,sans-serif}
+    .input:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+    .search-box{text-align:center;margin-bottom:15px}
+    #uv-address{
+      font-family:"Futura","Trebuchet MS",Arial,sans-serif;
+      width:705px;padding:20px;border:none;border-radius:20px;font-size:1rem;backdrop-filter:blur(10px);background:rgba(255,255,255,.2);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,box-shadow .3s ease
+    }
+    #uv-address::placeholder{color:rgba(255,255,255,.7);font-family:"Futura","Trebuchet MS",Arial,sans-serif}
+    #uv-address:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+    .bookmarks{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;opacity:0;animation:enterBookmarks 1s forwards .5s;width:100%;max-width:800px;text-align:center;margin-top:15px}
+    .bookmark{margin-bottom:20px;display:flex;flex-direction:column;align-items:center;text-decoration:none;color:#fff;background:rgba(255,255,255,.2);padding:10px;border-radius:15px;width:120px;height:120px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:transform .3s ease,background .3s ease,box-shadow .3s ease;backdrop-filter:blur(10px);position:relative}
+    .bookmark img{margin:auto;height:40px;width:auto;transition:transform .3s ease}
+    .bookmark span{font-size:.9rem;margin:auto;font-family:"Futura","Trebuchet MS",Arial,sans-serif}
+    .bookmark:hover{transform:scale(1.05);background:rgba(255,255,255,.3)}
+    .bookmark img:hover{transform:rotate(10deg) scale(1.1)}
+    @keyframes show-proxy-div{from{bottom:-100vh;top:100vh}to{bottom:0;top:0}}
+    @keyframes hide-proxy-div{from{bottom:0;top:0;display:block}to{bottom:-100vh;top:100vh;display:block}}
+    #proxy-div{transition:background-color .5s}
+    .hide-proxy-div{display:none;position:fixed;top:0;bottom:0;left:0;right:0;width:100vw;height:100vh;margin:0;padding:0;background-color:rgb(30,35,55);animation-name:hide-proxy-div;animation-duration:.5s;z-index:10}
+    .show-proxy-div{display:block;position:fixed;top:0;bottom:0;left:0;right:0;width:100vw;height:100vh;margin:0;padding:0;background-color:#fff;animation-name:show-proxy-div;animation-duration:.5s;z-index:10}
+    .tab{margin:0;padding:0;width:100vw;height:calc(100vh - 40px);border:none;background-color:inherit;display:none}
+    #proxy-nav-bar{height:45px;background-color:rgb(35,45,75);color:#fff;width:100%;overflow:hidden}
+    #proxy-button-row{display:flex;color:#fff;gap:10px;background-color:rgb(61 74 112);height:41px;align-items:center;width:100%;overflow:hidden}
+    #nav-bar-address{width:calc(100vw - 293px);height:30px;font-size:16px;margin:5px 0 5px 15px;border:none;color:rgb(255,247,206);background-color:rgb(35,45,75);transition:background-color .3s;border-radius:10px;padding:8px}
+    #nav-bar-address:focus{background-color:rgb(55,65,95)}
+    #nav-bar-form{height:40px;margin:0;padding:0;display:flex;justify-content:center}
+    .tabBarTab{position:relative;padding:10px 20px;background-color:transparent;border-radius:8px 8px 0 0;color:rgb(255,230,100);cursor:pointer;transition:all .2s ease;height:40px;font-family:Arial,sans-serif;font-size:14px;display:inline-flex;align-items:center;justify-content:space-between;min-width:200px;max-width:225px;margin-left:5px;padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
+    .tabBarTab.active{background-color:rgb(62 74 112)!important;color:#fff!important;cursor:default}
+    .tabBarTab:hover:not(.active){background-color:rgb(49 67 123);border-radius:16px;color:rgb(255,255,250);height:36px!important;transform:translateY(-5px)}
+    .tab-content{display:flex;align-items:center;width:calc(100% - 20px);overflow:hidden}
+    .tab-favicon{width:25px;height:25px;margin-right:6px;object-fit:contain}
+    .tab-title{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:4px}
+    .tab-close{cursor:pointer;border-radius:50%;transition:background-color .2s}
+    .tab-close:hover{background-color:rgba(255,255,255,.1)}
+    #newTab{height:40px;width:40px;display:flex;align-items:center;justify-content:center;cursor:pointer;background:none;border-radius:8px;margin:5px 0 5px 4px;padding:8px 16px;float:left;width:auto;border:none;color:rgb(255,230,100)}
+    #newTab:hover{animation:bounce .5s ease-out forwards;color:rgb(255,255,180)}
+    #tabBarTabs{margin:0;padding:0}
+    .proxy-nav-bar-item{color:rgb(255,230,100);padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
+    .tabBarTab .fa-xmark:hover{color:rgb(255,255,180)}
+    .tabBarTab .fa-xmark{color:rgb(255,230,100);background:transparent}
+    #proxy-button-row .fa-arrow-right:hover{cursor:pointer;animation:bounceForward .5s ease-out forwards;color:rgb(255,255,180)}
+    #proxy-button-row .fa-arrow-left:hover{cursor:pointer;animation:bounceBackward .5s ease-out forwards;color:rgb(255,255,180)}
+    #proxy-button-row .fa-redo:hover{cursor:pointer;animation:spin .7s forwards;color:rgb(255,255,180)}
+    #proxy-button-row .fa-home:hover{cursor:pointer;animation:bounce .5s ease-out forwards;color:rgb(255,255,180)}
+    #proxy-button-row .fa-up-right-from-square:hover{animation:bounce .5s ease-out forwards;color:rgb(255,255,180)}
+    #proxy-button-row .fa-expand:hover{animation:bounce .5s ease-out forwards;color:rgb(255,255,180)}
+    @keyframes bounceForward{0%{transform:translateX(0)}30%{transform:translateX(4.6px)}50%{transform:translateX(-2px)}70%{transform:translateX(1px)}100%{transform:translateX(0)}}
+    @keyframes bounceBackward{0%{transform:translateX(0)}30%{transform:translateX(-4.6px)}50%{transform:translateX(2px)}70%{transform:translateX(-1px)}100%{transform:translateX(0)}}
+    @keyframes spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+    @keyframes bounce{0%{transform:scale(1) translateZ(0)}30%{transform:scale(1.07) translateZ(15px)}50%{transform:scale(.9) translateZ(5px)}70%{transform:scale(1.07) translateZ(8px)}100%{transform:scale(1) translateZ(0)}}
+    .add-bookmark{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;background:rgba(255,255,255,.2);border-radius:15px;cursor:pointer;font-family:"Futura","Trebuchet MS",Arial,sans-serif;font-size:1rem;color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,transform .3s ease;width:120px;height:120px}
+    .add-bookmark:hover{background:rgba(255,255,255,.3);transform:scale(1.1)}
+    .add-bookmark-modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;justify-content:center;align-items:center}
+    .add-bookmark-content{background:rgba(255,255,255,.2);border-radius:15px;padding:20px;color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);backdrop-filter:blur(10px);width:400px;max-width:90%}
+    .add-bookmark-content h3{font-family:"Futura","Trebuchet MS",Arial,sans-serif;margin-bottom:15px;text-align:center;text-shadow:0 0 10px rgba(0,0,0,.8)}
+    .add-bookmark-content input{font-family:"Futura","Trebuchet MS",Arial,sans-serif;width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:15px;font-size:1rem;backdrop-filter:blur(10px);background:rgba(255,255,255,.2);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,box-shadow .3s ease}
+    .add-bookmark-content input::placeholder{color:rgba(255,255,255,.7);font-family:"Futura","Trebuchet MS",Arial,sans-serif}
+    .add-bookmark-buttons{display:flex;justify-content:space-between;gap:10px;margin-top:10px}
+    .add-bookmark-buttons button{font-family:"Futura","Trebuchet MS",Arial,sans-serif;padding:12px;border:none;border-radius:15px;font-size:1rem;backdrop-filter:blur(10px);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:all .3s ease;cursor:pointer;flex:1;background:rgba(255,255,255,.2)}
+    .add-bookmark-buttons button:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+    .delete-bookmark{position:absolute;top:-8px;right:-8px;background:rgba(244,67,54,.9);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:10px;cursor:pointer;display:none;justify-content:center;align-items:center;z-index:1}
+    .bookmark:hover .delete-bookmark{display:flex}
+    .delete-bookmark:hover{background:rgba(244,67,54,1)}
+    .edit-bookmark{position:absolute;top:-8px;left:-8px;background:rgba(220,220,220,.9);color:#333;border:none;border-radius:50%;width:20px;height:20px;font-size:10px;cursor:pointer;display:none;justify-content:center;align-items:center;z-index:1}
+    .bookmark:hover .edit-bookmark{display:flex}
+    .edit-bookmark:hover{background:rgba(240,240,240,1)}
+    .custom-engine-modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;justify-content:center;align-items:center}
+    .custom-engine-content{background:rgba(255,255,255,.2);border-radius:15px;padding:20px;color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);backdrop-filter:blur(10px);width:400px;max-width:90%}
+    .custom-engine-content h3{font-family:"Futura","Trebuchet MS",Arial,sans-serif;margin-bottom:15px;text-align:center;text-shadow:0 0 10px rgba(0,0,0,.8)}
+    .custom-engine-content input{font-family:"Futura","Trebuchet MS",Arial,sans-serif;width:100%;padding:12px;margin-bottom:15px;border:none;border-radius:15px;font-size:1rem;backdrop-filter:blur(10px);background:rgba(255,255,255,.2);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,box-shadow .3s ease}
+    .custom-engine-content input::placeholder{color:rgba(255,255,255,.7);font-family:"Futura","Trebuchet MS",Arial,sans-serif}
+    .custom-engine-content input:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+    .custom-engine-content input:focus{background:rgba(255,255,255,.3);outline:none}
+    .custom-engine-buttons{display:flex;justify-content:space-between;gap:10px}
+    .custom-engine-buttons button{font-family:"Futura","Trebuchet MS",Arial,sans-serif;padding:12px;border:none;border-radius:15px;font-size:1rem;backdrop-filter:blur(10px);background:rgba(255,255,255,.2);color:#fff;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,box-shadow .3s ease;cursor:pointer;flex:1}
+    .custom-engine-buttons button:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4)}
+    .delete-engine{float:right;color:rgba(255,107,107,.7);cursor:pointer;margin-left:10px;transition:color .3s ease}
+    .delete-engine:hover{color:rgba(255,82,82,1)}
+    .modal-overlay{position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.5);z-index:999;display:none}
+    .search-containeraa{display:flex;align-content:center;position:relative}
+    .search-engine-dropdownaa{position:relative;margin-right:10px;background-color:rgba(255,255,255,.2);border:none;padding:0;display:flex;justify-content:center;align-items:center;border-radius:20px;z-index:2;width:61px;cursor:pointer;backdrop-filter:blur(10px);transition:background .3s ease,box-shadow .3s ease;box-shadow:0 4px 15px rgba(0,0,0,.3)}
+    .search-engine-dropdownaa:hover{background:rgba(255,255,255,.3);box-shadow:0 6px 20px rgba(0,0,0,.4);cursor:pointer}
+    .search-engine-dropdownaa img{width:38px;height:38px}
+    .dropdown-contentaa{display:none;position:absolute;top:100%;left:0;background-color:rgba(255,255,255,.2);min-width:250px;box-shadow:0 8px 16px rgba(0,0,0,.2);border-radius:10px;padding:0;z-index:1;backdrop-filter:blur(10px);margin-top:10px}
+    .dropdown-contentaa .status-messageaa{color:#f1f1f1;padding:14px;background-color:rgba(255,255,255,.2);border-top-left-radius:10px;border-top-right-radius:10px}
+    .dropdown-contentaa a{color:#fff;padding:12px;text-decoration:none;display:flex;align-items:center;gap:8px;transition:background .3s ease,box-shadow .3s ease}
+    .dropdown-contentaa a:hover{background-color:rgba(255,255,255,.3)}
+    .dropdown-contentaa a img{width:28px;height:28px}
+    .dropdown-contentaa a:last-child:hover{border-bottom-left-radius:10px;border-bottom-right-radius:10px}
+    .top-right-menu,.top-left-menu{position:absolute;top:10px}
+    .top-right-menu{right:10px}
+    .top-left-menu{left:10px}
+    .menu-button{padding:15px;background:rgba(255,255,255,.2);color:#fff;border-radius:25px;cursor:pointer;font-family:"Futura","Trebuchet MS",Arial,sans-serif;font-size:1.1rem;box-shadow:0 4px 15px rgba(0,0,0,.3);transition:background .3s ease,transform .3s ease;border-color:transparent}
+    .menu-button:hover{background:rgba(255,255,255,.3);transform:scale(1.1)}
+    .rotating-text{font-family:"Futura","Trebuchet MS",Arial,sans-serif;font-size:1.5rem;color:#fff;text-shadow:0 0 10px rgba(0,0,0,.8);margin-top:20px;min-height:2em}
+    @keyframes enterBookmarks{to{opacity:1;backdrop-filter:blur(1px)}}
   </style>
-  <script>
-    "use strict";
-
-const uvForm = document.getElementById("uv-form");
-const uvAddress = document.getElementById("uv-address");
-const navForm = document.getElementById("nav-bar-form");
-const navAddress = document.getElementById("nav-bar-address");
-const searchEngineInputs = document.querySelectorAll("#uv-search-engine");
-const error = document.getElementById("uv-error");
-const errorCode = document.getElementById("uv-error-code");
-
-const STORAGE_KEYS = {
-  BOOKMARKS: 'madEggBrowser_bookmarks',
-  SEARCH_ENGINE: 'madEggBrowser_searchEngine',
-  SEARCH_ICON: 'madEggBrowser_searchIcon',
-  HOME_PAGE: 'madEggBrowser_homePage'
-};
-
-var currentTabId = 0;
-var currentTab = 0;
-var tabIds = [];
-
-document.addEventListener("DOMContentLoaded", function() {
-  setupEventListeners();
-  updateBackgroundImage();
-  setInterval(universalAdapter, 1000);
-  setInterval(updateTimeDate, 1000);
-  updateTimeDate();
-  loadBookmarks();
-  loadSearchEngine();
-  type();
-});
-
-function setupEventListeners() {
-  uvForm?.addEventListener("submit", async e => {
-    e.preventDefault();
-    await handleSearch(uvAddress, true);
-  });
-  navForm?.addEventListener("submit", async e => {
-    e.preventDefault();
-    await handleSearch(navAddress, false);
-  });
-  const addBookmarkButton = document.getElementById('add-bookmark');
-  const saveBookmarkButton = document.getElementById('save-bookmark');
-  addBookmarkButton?.addEventListener('click', () => {
-    document.getElementById('add-bookmark-modal').style.display = 'flex';
-  });
-  saveBookmarkButton?.addEventListener('click', saveBookmark);
-  document.getElementById('show-custom-engine')?.addEventListener('click', showCustomEngineModal);
-  document.getElementById('add-custom-engine-btn')?.addEventListener('click', addCustomEngine);
-  document.getElementById('cancel-custom-engine')?.addEventListener('click', function() {
-    document.getElementById('custom-engine-modal').style.display = 'none';
-  });
-  document.getElementById('cancel-bookmark')?.addEventListener('click', () => {
-    document.getElementById('add-bookmark-modal').style.display = 'none';
-    document.getElementById('bookmark-name').value = '';
-    document.getElementById('bookmark-url').value = '';
-  });
-  navAddress?.addEventListener('focus', () => {
-    navAddress.select();
-  });
-  navAddress?.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      handleSearch(navAddress, false);
-    }
-  });
-  document.querySelectorAll('.dropdown-contentaa a[data-engine]').forEach(engine => {
-    engine.addEventListener('click', function(e) {
-      e.preventDefault();
-      const img = this.querySelector('img');
-      selectEngine(img.src, this.dataset.engine, 0);
-    });
-  });
-}
-
-function toggleDropdown(index) {
-  const dropdown = document.getElementById(`engineDropdown-${index}`);
-  dropdown.style.display = dropdown.style.display === "block" ? "none" : "block";
-}
-
-function selectEngine(icon, engine, index) {
-  const dropdownBtn = document.querySelector(`.search-engine-dropdownaa`);
-  const statusMsg = document.getElementById(`statusMessage-${index}`);
-  const engineName = document.querySelector(`#engineDropdown-${index} a[data-engine="${engine}"]`)?.textContent.trim() || "Custom";
-  searchEngineInputs.forEach(input => {
-    input.value = engine.includes("%s") ? engine : engine + "%s";
-  });
-  dropdownBtn.querySelector("img").src = icon;
-  statusMsg.textContent = `Searching with ${engineName}`;
-  document.getElementById(`engineDropdown-${index}`).style.display = "none";
-  saveSearchEngine(icon, engine.includes("%s") ? engine : engine + "%s");
-  const tempUrl = engine.includes("%s") ? engine.replace("%s", "") : engine;
-  const homePageUrl = new URL(tempUrl).origin + "/";
-  localStorage.setItem(STORAGE_KEYS.HOME_PAGE, homePageUrl);
-  document.getElementById("uv-start-page").value = homePageUrl;
-}
-
-async function handleSearch(inputElement, isMainSearch) {
-  const query = inputElement.value.trim();
-  if (!query) return;
-  if (isMainSearch) {
-    inputElement.blur();
-  }
-  try {
-    await registerSW();
-    const iframe = getActiveIframe();
-    const url = search(query, document.querySelector("#uv-search-engine").value);
-    const prefix = __uv$config.prefix;
-    const encUrl = prefix + __uv$config.encodeUrl(url);
-    const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
-    if (await connection.getTransport() !== "/epoxy/index.mjs") {
-      await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
-    }
-    const finalUrl = "http://localhost:8080" + encUrl;
-    showProxy();
-    if (iframe) {
-      iframe.src = finalUrl;
-    } else {
-      newTab(finalUrl);
-    }
-    if (!isMainSearch) {
-      updateAddressBar();
-    }
-  } catch (err) {
-    console.error("Search error:", err);
-    if (error) error.textContent = "Failed to process search.";
-    if (errorCode) errorCode.textContent = err.toString();
-  }
-}
-
-function updateAddressBar() {
-  const f = getActiveIframe();
-  if (!f) return;
-  if (document.activeElement === navAddress) return;
-  let raw;
-  try {
-    raw = f.contentWindow.location.href;
-  } catch {
-    raw = f.src;
-  }
-  const prefix = __uv$config.prefix;
-  let enc;
-  if (raw.includes(prefix)) {
-    enc = raw.split(prefix)[1];
-  } else {
-    enc = raw;
-  }
-  const dec = __uv$config.decodeUrl ? __uv$config.decodeUrl(enc) : atob(enc);
-  const url = dec.slice(dec.indexOf("http"));
-  navAddress.value = url;
-}
-
-function getActiveIframe() {
-  return document.getElementById("frame" + currentTab);
-}
-
-function getTabId() {
-  tabIds.push(currentTabId);
-  return currentTabId++;
-}
-
-function newTab(url) {
-  if (!url) {
-    const homePage = localStorage.getItem(STORAGE_KEYS.HOME_PAGE) || "https://google.com/";
-    url = __uv$config.prefix + __uv$config.encodeUrl(homePage);
-  }
-  const el = document.getElementById("tabBarTabs");
-  const tabId = getTabId();
-  el.innerHTML += `
-    <div class="tabBarTab" id="tab${tabId}" onclick="openTab(${tabId})">
-      <div class="tab-content">
-        <img id="favicon-${tabId}" class="tab-favicon">
-        <span id="title-${tabId}" class="tab-title">New Tab</span>
-        <i class="fa-solid fa-xmark tab-close" onclick="event.stopPropagation();closeTab(${tabId})"></i>
-      </div>
-    </div>`;
-  const tab = el.lastElementChild;
-  setTimeout(() => tab.style.marginTop = "9px", 1);
-  const frame = document.createElement("iframe");
-  frame.src = url;
-  frame.classList.add("tab");
-  frame.id = "frame" + tabId;
-  frame.style.cssText = "width:100%;height:100%;border:none;display:none;";
-  document.getElementById("frames").append(frame);
-  openTab(tabId);
-  return frame;
-}
-
-function openTab(tabId) {
-  document.querySelectorAll(".tabBarTab").forEach(t => t.classList.remove("active"));
-  document.querySelectorAll(".tab").forEach(f => f.style.display = "none");
-  currentTab = tabId;
-  const tabEl = document.getElementById("tab" + tabId);
-  const frameEl = document.getElementById("frame" + tabId);
-  if (tabEl && frameEl) {
-    tabEl.classList.add("active");
-    frameEl.style.display = "block";
-    updateAddressBar();
-  }
-}
-
-function closeTab(tabId) {
-  const tabEl = document.getElementById("tab" + tabId);
-  const frameEl = document.getElementById("frame" + tabId);
-  if (tabEl) tabEl.remove();
-  if (frameEl) frameEl.remove();
-  const idx = tabIds.indexOf(tabId);
-  if (idx > -1) tabIds.splice(idx, 1);
-  if (currentTab === tabId) {
-    if (tabIds.length) {
-      openTab(tabIds[tabIds.length - 1]);
-    } else {
-      newTab();
-    }
-  }
-}
-
-function closeAllTabs() {
-  document.getElementById("frames").innerHTML = "";
-  document.getElementById("tabBarTabs").innerHTML = "";
-  tabIds = [];
-  currentTab = 0;
-  newTab();
-}
-
-function showProxy() {
-  document.getElementById("proxy-div").className = "show-proxy-div";
-}
-
-function hideProxy() {
-  document.getElementById("proxy-div").className = "hide-proxy-div";
-}
-
-function goHome() {
-  closeAllTabs();
-  hideProxy();
-}
-
-function goBack() {
-  const f = getActiveIframe();
-  f && f.contentWindow.history.back();
-}
-
-function goForward() {
-  const f = getActiveIframe();
-  f && f.contentWindow.history.forward();
-}
-
-function reloadPage() {
-  const f = getActiveIframe();
-  f && f.contentWindow.location.reload();
-}
-
-function proxyFullscreen() {
-  const f = getActiveIframe();
-  f && (f.requestFullscreen?.() || f.webkitRequestFullscreen?.() || f.msRequestFullscreen?.());
-}
-
-function windowPopout() {
-  const popup = open("about:blank", "_blank");
-  if (!popup || popup.closed) {
-    alert("Window blocked. Please allow popups for this site.");
-    return false;
-  }
-  const f = getActiveIframe();
-  if (!f) return;
-  const iframe = popup.document.createElement("iframe");
-  iframe.src = f.src;
-  iframe.style.position = "fixed";
-  iframe.style.top = iframe.style.bottom = iframe.style.left = iframe.style.right = "0";
-  iframe.style.border = iframe.style.outline = "none";
-  iframe.style.width = iframe.style.height = "100%";
-  popup.document.body.innerHTML = "";
-  popup.document.body.appendChild(iframe);
-  return true;
-}
-
-function navigateBookmark(url) {
-  if (!url) {
-    const clickedBookmark = event.currentTarget;
-    url = clickedBookmark.dataset.url;
-  }
-  if (!/^https?:\/\//i.test(url)) url = "https://" + url;
-  uvAddress.value = url;
-  uvAddress.focus();
-  handleSearch(uvAddress, true);
-}
-
-function saveBookmark() {
-  const name = document.getElementById('bookmark-name').value.trim();
-  let url = document.getElementById('bookmark-url').value.trim();
-  if (!name || !url) {
-    alert('Please fill in both fields');
-    return;
-  }
-  if (!/^https?:\/\//i.test(url)) {
-    url = 'https://' + url;
-  }
-  try {
-    new URL(url);
-    const cleanUrl = sanitizeUrl(url);
-    const faviconUrl = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(cleanUrl)}&size=256`;
-    if (currentEditingBookmark) {
-      currentEditingBookmark.querySelector('span').textContent = name;
-      currentEditingBookmark.dataset.url = url;
-      currentEditingBookmark.querySelector('img').src = faviconUrl;
-    } else {
-      addBookmarkToDOM(name, url, faviconUrl);
-    }
-    saveBookmarksToStorage();
-    closeBookmarkModal();
-  } catch (e) {
-    alert('Please enter a valid URL');
-  }
-}
-
-function loadSearchEngine() {
-  const savedEngine = localStorage.getItem(STORAGE_KEYS.SEARCH_ENGINE);
-  const savedIcon = localStorage.getItem(STORAGE_KEYS.SEARCH_ICON);
-  if (savedEngine && savedIcon) {
-    searchEngineInputs.forEach(input => {
-      input.value = savedEngine.includes("%s") ? savedEngine : savedEngine + "%s";
-    });
-    document.querySelector('.search-engine-dropdownaa img').src = savedIcon;
-    document.getElementById('statusMessage-0').textContent =
-      `Searching with ${getEngineName(savedEngine)}`;
-    const tempUrl = savedEngine.includes("%s") ? savedEngine.replace("%s", "") : savedEngine;
-    const homePageUrl = new URL(tempUrl).origin + "/";
-    localStorage.setItem(STORAGE_KEYS.HOME_PAGE, homePageUrl);
-    document.getElementById("uv-start-page").value = homePageUrl;
-  }
-}
-
-function getEngineName(engineUrl) {
-  const engineMap = {
-    'https://www.google.com/search?q=': 'Google',
-    'https://search.brave.com/search?q=': 'Brave',
-    'https://www.bing.com/search?q=': 'Bing'
-  };
-  return engineMap[engineUrl] || 'Custom';
-}
-
-function saveSearchEngine(icon, engine) {
-  localStorage.setItem(STORAGE_KEYS.SEARCH_ENGINE, engine);
-  localStorage.setItem(STORAGE_KEYS.SEARCH_ICON, icon);
-}
-
-function universalAdapter() {
-  const savedHome = localStorage.getItem(STORAGE_KEYS.HOME_PAGE) || '';
-  const dropdownBtn = document.querySelector(`.search-engine-dropdownaa`);
-  const statusMsg = document.getElementById(`statusMessage-0`);
-  for (let id of tabIds) {
-    const frame = document.getElementById("frame" + id);
-    if (!frame) continue;
-    let raw;
-    try {
-      raw = frame.contentWindow.location.href;
-    } catch {
-      raw = frame.src;
-    }
-    const prefix = __uv$config.prefix;
-    let enc;
-    if (raw.includes(prefix)) {
-      enc = raw.split(prefix)[1];
-    } else {
-      enc = raw;
-    }
-    const dec = __uv$config.decodeUrl ? __uv$config.decodeUrl(enc) : atob(enc);
-    const url = dec.slice(dec.indexOf("http"));
-    const titleElement = document.getElementById(`title-${id}`);
-    if (titleElement) {
-      titleElement.textContent = (frame.contentDocument && frame.contentDocument.title) ||
-                                url.split("/").pop() ||
-                                "untitled";
-    }
-    const faviconElement = document.getElementById(`favicon-${id}`);
-    if (faviconElement) {
-      faviconElement.src = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(url)}&size=256`;
-    }
-    if (id === currentTab && document.activeElement !== navAddress) {
-      navAddress.value = url;
-      if (url === savedHome) {
-        const savedIcon = localStorage.getItem(STORAGE_KEYS.SEARCH_ICON);
-        dropdownBtn.querySelector("img").src = savedIcon;
-        statusMsg.textContent = `Home Page`;
-      }
-    }
-  }
-}
-
-function updateTimeDate() {
-  const date = new Date();
-  const options = {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit'
-  };
-  document.getElementById('time-date').textContent =
-    date.toLocaleDateString('en-US', options).replace(' at', ',');
-}
-
-function SHS() {
-  const sites = [
-    "https://docs.google.com",
-    "https://drive.google.com",
-    "https://classroom.google.com",
-    "https://classroom.google.com/u/1/a/not-turned-in/all",
-    "https://slides.google.com",
-    "https://google.com",
-    "https://youtube.com",
-    "https://www.edpuzzle.com",
-    "https://www.gmail.com",
-    "https://sheets.google.com",
-    "https://www.google.com/search?q=calculator"
-  ];
-  sites.forEach(site => window.open(site));
-}
-
-function AB() {
-  let inFrame;
-  try {
-    inFrame = window !== top;
-  } catch (e) {
-    inFrame = true;
-  }
-  if (!inFrame && !navigator.userAgent.includes("Firefox")) {
-    const popup = open("about:blank", "_blank");
-    if (!popup || popup.closed) {
-      alert("Window blocked. Please allow popups for this site.");
-    } else {
-      const doc = popup.document;
-      const iframe = doc.createElement("iframe");
-      const link = doc.createElement("link");
-      const name = localStorage.getItem("name") || "Home";
-      const icon = localStorage.getItem("icon") || "https://raw.githubusercontent.com/UseInterstellar/Interstellar/refs/heads/main/static/favicon.ico";
-      doc.title = name;
-      link.rel = "icon";
-      link.href = icon;
-      iframe.src = location.href;
-      iframe.style.position = "fixed";
-      iframe.style.top = iframe.style.bottom = iframe.style.left = iframe.style.right = 0;
-      iframe.style.border = iframe.style.outline = "none";
-      iframe.style.width = iframe.style.height = "100%";
-      const script = doc.createElement("script");
-      script.textContent = `
-        window.onbeforeunload = function (event) {
-          const confirmationMessage = 'Leave Site?';
-          (event || window.event).returnValue = confirmationMessage;
-          return confirmationMessage;
-        };
-      `;
-      doc.head.appendChild(link);
-      doc.body.appendChild(iframe);
-      doc.head.appendChild(script);
-    }
-  }
-}
-
-const rotatingText = document.getElementById('rotating-text');
-const messages = [
-  "Your phone's at 1%. Find a charger ASAP.",
-  "Still waiting for a reply? Classic.",
-  "Check your phone again. Yep, still no new texts.",
-  "You texted them, they didn't reply. Story of our lives.",
-  "Refresh again. It's not gonna change, but okay.",
-  "How is it that we only notice how tired we are once we sit down?"
-];
-
-let currentMessageIndex = 0;
-let currentCharIndex = 0;
-let isDeleting = false;
-const typingSpeed = 100;
-const pauseBetween = 2000;
-
-function type() {
-  const currentMessage = messages[currentMessageIndex];
-  if (isDeleting) {
-    rotatingText.textContent = currentMessage.substring(0, currentCharIndex--);
-    if (currentCharIndex < 0) {
-      isDeleting = false;
-      currentMessageIndex = (currentMessageIndex + 1) % messages.length;
-      setTimeout(type, 500);
-    } else {
-      setTimeout(type, typingSpeed / 2);
-    }
-  } else {
-    rotatingText.textContent = currentMessage.substring(0, currentCharIndex++);
-    if (currentCharIndex > currentMessage.length) {
-      isDeleting = true;
-      setTimeout(type, pauseBetween);
-    } else {
-      setTimeout(type, typingSpeed);
-    }
-  }
-}
-
-function addCustomEngine() {
-  const customName = document.getElementById('custom-engine-name').value.trim();
-  const customUrl = document.getElementById('custom-engine-url').value.trim();
-  const customIcon = document.getElementById('custom-engine-icon').value.trim() ||
-                    `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(customUrl.split('?')[0].split('/')[2])}&size=256`;
-  const editMode = document.getElementById('custom-engine-modal-title').textContent === 'Edit Search Engine';
-  const originalUrl = document.getElementById('custom-engine-modal').dataset.originalUrl;
-  if (!customName || !customUrl) {
-    alert('Please provide both a name and URL for the custom search engine');
-    return;
-  }
-  if (!customUrl.includes("%s")) {
-    if (!confirm('Your URL doesn\'t contain a "%s" placeholder. The search term will be appended to the end. Is this okay?')) {
-      return;
-    }
-  }
-  const dropdownContent = document.querySelector('.dropdown-contentaa');
-  if (editMode) {
-    const existingEngine = document.querySelector(`.dropdown-contentaa a[data-engine="${originalUrl}"]`);
-    if (existingEngine) {
-      existingEngine.setAttribute('data-engine', customUrl.includes("%s") ? customUrl : customUrl + "%s");
-      existingEngine.innerHTML = `
-        <img src="${customIcon}" alt="${customName}">
-        ${customName}
-        <i class="fa-solid fa-pen edit-engine" onclick="event.stopPropagation();editEngine(this.parentNode)"></i>
-        <i class="fa-solid fa-trash delete-engine" onclick="event.stopPropagation();deleteEngine(this.parentNode)"></i>
-      `;
-    }
-  } else {
-    const newEngine = document.createElement('a');
-    newEngine.href = "javascript:void(0);";
-    newEngine.setAttribute('data-engine', customUrl.includes("%s") ? customUrl : customUrl + "%s");
-    newEngine.onclick = function() {
-      selectEngine(
-        customIcon,
-        customUrl.includes("%s") ? customUrl : customUrl + "%s",
-        0
-      );
-    };
-    newEngine.innerHTML = `
-      <img src="${customIcon}" alt="${customName}">
-      ${customName}
-      <i class="fa-solid fa-pen edit-engine" onclick="event.stopPropagation();editEngine(this.parentNode)"></i>
-      <i class="fa-solid fa-trash delete-engine" onclick="event.stopPropagation();deleteEngine(this.parentNode)"></i>
-    `;
-    dropdownContent.insertBefore(newEngine, document.querySelector('.add-custom-engine'));
-  }
-  document.getElementById('custom-engine-modal').style.display = 'none';
-  document.getElementById('custom-engine-name').value = '';
-  document.getElementById('custom-engine-url').value = '';
-  document.getElementById('custom-engine-icon').value = '';
-}
-
-function deleteEngine(engineElement) {
-  if (confirm('Are you sure you want to delete this search engine?')) {
-    engineElement.remove();
-  }
-}
-
-function showCustomEngineModal() {
-  document.getElementById('custom-engine-modal').style.display = 'flex';
-}
-
-function saveBookmarksToStorage() {
-  const bookmarks = [];
-  document.querySelectorAll('.bookmark:not(#add-bookmark)').forEach(bookmark => {
-    bookmarks.push({
-      name: bookmark.querySelector('span').textContent,
-      url: bookmark.dataset.url,
-      icon: bookmark.querySelector('img').src
-    });
-  });
-  localStorage.setItem(STORAGE_KEYS.BOOKMARKS, JSON.stringify(bookmarks));
-}
-
-function loadBookmarks() {
-  const savedBookmarks = localStorage.getItem(STORAGE_KEYS.BOOKMARKS);
-  const bookmarksContainer = document.getElementById('bookmarks');
-  document.querySelectorAll('.bookmark:not(#add-bookmark)').forEach(bm => bm.remove());
-  if (savedBookmarks) {
-    try {
-      JSON.parse(savedBookmarks).forEach(bookmark => {
-        addBookmarkToDOM(bookmark.name, bookmark.url, bookmark.icon);
-      });
-    } catch (e) {
-      console.error("Error loading bookmarks:", e);
-      loadDefaultBookmarks();
-    }
-  } else {
-    loadDefaultBookmarks();
-  }
-}
-
-function loadDefaultBookmarks() {
-  const defaultBookmarks = [
-    { name: "YouTube", url: "https://www.youtube.com", icon: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://youtube.com&size=256" },
-    { name: "Twitter", url: "https://twitter.com", icon: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://twitter.com&size=256" },
-    { name: "Discord", url: "https://discord.com", icon: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://discord.com&size=256" },
-    { name: "GeForce Now", url: "https://www.nvidia.com/en-us/geforce-now/", icon: "https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://nvidia.com&size=256" }
-  ];
-  defaultBookmarks.forEach(bookmark => {
-    addBookmarkToDOM(bookmark.name, bookmark.url, bookmark.icon);
-  });
-}
-
-function addBookmarkToDOM(name, url, iconUrl) {
-  const bookmarksContainer = document.getElementById('bookmarks');
-  const bookmark = document.createElement('a');
-  bookmark.href = '#';
-  bookmark.className = 'bookmark';
-  bookmark.dataset.url = url;
-  let faviconUrl = iconUrl;
-  if (!iconUrl) {
-    const cleanUrl = sanitizeUrl(url);
-    faviconUrl = `https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=${encodeURIComponent(cleanUrl)}&size=256`;
-  }
-  bookmark.innerHTML = `
-    <img src="${faviconUrl}" alt="${name}">
-    <span>${name}</span>
-    <button class="edit-bookmark"><i class="fa-solid fa-pen"></i></button>
-    <button class="delete-bookmark"><i class="fa-solid fa-trash"></i></button>
-  `;
-  bookmarksContainer.insertBefore(bookmark, document.getElementById('add-bookmark'));
-  const editBtn = bookmark.querySelector('.edit-bookmark');
-  const deleteBtn = bookmark.querySelector('.delete-bookmark');
-  editBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    editBookmark(bookmark);
-  });
-  deleteBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    if (confirm('Delete this bookmark?')) {
-      bookmark.remove();
-      saveBookmarksToStorage();
-    }
-  });
-  bookmark.addEventListener('click', (e) => {
-    if (!e.target.closest('.edit-bookmark') && !e.target.closest('.delete-bookmark')) {
-      e.preventDefault();
-      navigateBookmark(url);
-    }
-  });
-}
-
-function setHomePage(url) {
-  if (!url) {
-    const iframe = getActiveIframe();
-    if (iframe) {
-      try {
-        url = iframe.contentWindow.location.href;
-      } catch (e) {
-        url = iframe.src;
-      }
-    }
-  }
-  if (!url.startsWith('http://') && !url.startsWith('https://')) {
-    url = 'https://' + url;
-  }
-  try {
-    new URL(url);
-    localStorage.setItem(STORAGE_KEYS.HOME_PAGE, url);
-    return true;
-  } catch (e) {
-    console.error('Invalid URL:', e);
-    alert('Invalid URL format. Please enter a valid web address.');
-    return false;
-  }
-}
-
-function editBookmark(bookmarkElement) {
-  currentEditingBookmark = bookmarkElement;
-  document.getElementById('bookmark-name').value = bookmarkElement.querySelector('span').textContent;
-  document.getElementById('bookmark-url').value = bookmarkElement.dataset.url;
-  document.getElementById('add-bookmark-modal').style.display = 'flex';
-  document.getElementById('bookmark-name').focus();
-}
-
-function editEngine(engineElement) {
-  const name = engineElement.textContent.trim();
-  const url = engineElement.dataset.engine;
-  const icon = engineElement.querySelector('img').src;
-  document.getElementById('custom-engine-modal-title').textContent = 'Edit Search Engine';
-  document.getElementById('custom-engine-name').value = name;
-  document.getElementById('custom-engine-url').value = url;
-  document.getElementById('custom-engine-icon').value = icon;
-  document.getElementById('custom-engine-modal').dataset.originalUrl = url;
-  document.getElementById('custom-engine-modal').style.display = 'flex';
-}
-
-let currentEditingBookmark = null;
-
-function closeBookmarkModal() {
-  document.getElementById('add-bookmark-modal').style.display = 'none';
-  document.getElementById('bookmark-name').value = '';
-  document.getElementById('bookmark-url').value = '';
-  currentEditingBookmark = null;
-}
-
-document.getElementById('save-bookmark').addEventListener('click', saveBookmark);
-document.getElementById('cancel-bookmark').addEventListener('click', closeBookmarkModal);
-document.getElementById('add-bookmark').addEventListener('click', () => {
-  currentEditingBookmark = null;
-  document.getElementById('add-bookmark-modal').style.display = 'flex';
-  document.getElementById('bookmark-name').focus();
-});
-
-function sanitizeUrl(url) {
-  let cleanUrl = url.replace(/^(https?:)?\/\//, '');
-  cleanUrl = cleanUrl.split('/')[0];
-  if (!cleanUrl.startsWith('http://') && !cleanUrl.startsWith('https://')) {
-    cleanUrl = 'https://' + cleanUrl;
-  }
-  return cleanUrl;
-}
-
-function updateBackgroundImage() {
-  const savedBg = localStorage.getItem('backgroundImage');
-  if (savedBg) {
-    document.documentElement.style.setProperty('--background-image', `url(${savedBg})`);
-  }
-}
-
-lucide.createIcons();
-
-(function(){
-  const proxyDiv = document.getElementById('proxy-div');
-  const navbar = document.querySelector('.navbar');
-  
-  if (!proxyDiv || !navbar) return;
-  
-  const observer = new MutationObserver(()=>{
-    if(proxyDiv.classList.contains('show-proxy-div')) {
-      navbar.style.display='none';
-    } else {
-      navbar.style.display='flex';
-    }
-  });
-  observer.observe(proxyDiv,{attributes:true,attributeFilter:['class']});
-})();
-
-window.addEventListener("message", (event) => {
-  if (event.data?.action === "getLocalStorage") {
-    event.source.postMessage(
-      { key: event.data.key, value: localStorage.getItem(event.data.key) },
-      event.origin
-    );
-  }
-});
-
-"use strict";
-
-function search(input, template) {
-  try {
-    return new URL(input).toString();
-  } catch (err) {
-  }
-
-  try {
-    const url = new URL(`http://${input}`);
-    if (url.hostname.includes(".")) return url.toString();
-  } catch (err) {
-  }
-  return template.replace("%s", encodeURIComponent(input));
-}
-
-  </script>
 </head>
 <body>
   <div id="proxy-div" class="hide-proxy-div">
     <div id="proxy-nav-bar">
       <div id="tabBarTabs"></div>
-      <div id="newTab" onclick="newTab()">
-        <i class="fa-solid fa-circle-plus fa-lg"></i>
-      </div>
+      <div id="newTab" onclick="newTab()"><i class="fa-solid fa-circle-plus fa-lg"></i></div>
     </div>
-
     <div id="proxy-button-row">
-      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="goBack()">
-        <i class="fas fa-arrow-left fa-lg"></i>
-      </div>
-      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="goForward()">
-        <i class="fas fa-arrow-right fa-lg"></i>
-      </div>
-      <div class="proxy-nav-bar-item" style="cursor: pointer; width: 24px;" onclick="reloadPage()">
-        <i class="fas fa-redo fa-lg"></i>
-      </div>
-      <div class="proxy-nav-bar-item" style="cursor: pointer;width: 24px;" onclick="goHome()">
-        <i class="fas fa-home fa-lg"></i>
-      </div>
-      <div style="padding: 0;">
+      <div class="proxy-nav-bar-item" style="cursor:pointer;width:24px" onclick="goBack()"><i class="fas fa-arrow-left fa-lg"></i></div>
+      <div class="proxy-nav-bar-item" style="cursor:pointer;width:24px" onclick="goForward()"><i class="fas fa-arrow-right fa-lg"></i></div>
+      <div class="proxy-nav-bar-item" style="cursor:pointer;width:24px" onclick="reloadPage()"><i class="fas fa-redo fa-lg"></i></div>
+      <div class="proxy-nav-bar-item" style="cursor:pointer;width:24px" onclick="goHome()"><i class="fas fa-home fa-lg"></i></div>
+      <div style="padding:0">
         <form id="nav-bar-form">
           <input id="nav-bar-address" type="text" placeholder="Search the web" />
-          <input id="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
+          <input id="uv-search-engine-nav" class="uv-search-engine" value="https://www.google.com/search?q=%s" type="hidden" />
           <input id="uv-start-page" value="https://google.com" type="hidden">
         </form>
       </div>
-      <div class="proxy-nav-bar-item" style="cursor: pointer; padding: 8px;" onclick="windowPopout();">
-        <i class="fa-solid fa-up-right-from-square fa-lg"></i>
-      </div>
-      <div class="proxy-nav-bar-item" style="cursor: pointer; padding: 8px;" onclick="proxyFullscreen();">
-        <i class="fas fa-expand fa-lg"></i>
-      </div>
+      <div class="proxy-nav-bar-item" style="cursor:pointer;padding:8px" onclick="windowPopout();"><i class="fa-solid fa-up-right-from-square fa-lg"></i></div>
+      <div class="proxy-nav-bar-item" style="cursor:pointer;padding:8px" onclick="proxyFullscreen();"><i class="fas fa-expand fa-lg"></i></div>
     </div>
-
     <span id="frames"></span>
   </div>
+
   <h1>MadEgg Browser</h1>
+
   <div class="top-right-menu">
     <button class="menu-button" onclick="SHS()">Search History Spammer</button>
   </div>
-
   <div class="top-left-menu">
     <button class="menu-button" onclick="AB()">About:blank Cloaker</button>
   </div>
@@ -1705,62 +166,49 @@ function search(input, template) {
   <div class="time-date" id="time-date"></div>
 
   <div class="search-box">
-  <div class="search-containeraa">
-    <button class="search-engine-dropdownaa" onclick="toggleDropdown(0)">
-      <img
-        id="selected-engine-0"
-        src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=256"
-        alt="Google">
-    </button>
-    <form id="uv-form">
-      <input id="uv-search-engine" type="hidden" value="https://www.google.com/search?q=" />
-      <input
-        id="uv-address"
-        autocomplete="off"
-        class="input"
-        type="text"
-        placeholder="Enter a search query or URL" />
-    </form>
-    <div class="dropdown-contentaa" id="engineDropdown-0">
-      <div class="status-messageaa" id="statusMessage-0">Searching with Google</div>
-      <a href="javascript:void(0);" data-newtab="https://www.google.com" data-engine="https://www.google.com/search?q=">
-        <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=256" alt="Google">
-        Google
-      </a>
-      <a href="javascript:void(0);" data-newtab="https://search.brave.com" data-engine="https://search.brave.com/search?q=">
-        <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://brave.com&size=256" alt="Brave">
-        Brave
-      </a>
-      <a href="javascript:void(0);" data-newtab="https://www.bing.com" data-engine="https://www.bing.com/search?q=">
-        <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://bing.com&size=256" alt="Bing">
-        Bing
-      </a>
-      <a href="javascript:void(0);" class="add-custom-engine" onclick="showCustomEngineModal()">
-        <i class="fa-solid fa-plus"></i> Add Custom Engine
-      </a>
+    <div class="search-containeraa">
+      <button class="search-engine-dropdownaa" onclick="toggleDropdown(0)">
+        <img id="selected-engine-0" src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=256" alt="Google">
+      </button>
+      <form id="uv-form">
+        <input id="uv-search-engine-main" class="uv-search-engine" type="hidden" value="https://www.google.com/search?q=" />
+        <input id="uv-address" autocomplete="off" class="input" type="text" placeholder="Enter a search query or URL" />
+      </form>
+      <div class="dropdown-contentaa" id="engineDropdown-0">
+        <div class="status-messageaa" id="statusMessage-0">Searching with Google</div>
+        <a href="javascript:void(0);" data-newtab="https://www.google.com" data-engine="https://www.google.com/search?q=">
+          <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://google.com&size=256" alt="Google"> Google
+        </a>
+        <a href="javascript:void(0);" data-newtab="https://search.brave.com" data-engine="https://search.brave.com/search?q=">
+          <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://brave.com&size=256" alt="Brave"> Brave
+        </a>
+        <a href="javascript:void(0);" data-newtab="https://www.bing.com" data-engine="https://www.bing.com/search?q=">
+          <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://bing.com&size=256" alt="Bing"> Bing
+        </a>
+        <a href="javascript:void(0);" class="add-custom-engine" onclick="showCustomEngineModal()"><i class="fa-solid fa-plus"></i> Add Custom Engine</a>
+      </div>
     </div>
   </div>
-</div>
-<div class="custom-engine-modal" id="custom-engine-modal">
-  <div class="custom-engine-content">
-    <h3>Add Custom Search Engine</h3>
-    <input type="text" id="custom-engine-name" placeholder="Engine Name (e.g., My Search)">
-    <input type="text" id="custom-engine-url" placeholder="Search URL (include %s for query)">
-    <input type="text" id="custom-engine-icon" placeholder="Icon URL (optional)">
-    <input type="text" id="custom-engine-homepage" placeholder="Homepage URL (e.g., https://www.google.com)">
-    <div class="custom-engine-buttons">
-      <button id="add-custom-engine-btn">Add Engine</button>
-      <button id="cancel-custom-engine">Cancel</button>
+
+  <div class="custom-engine-modal" id="custom-engine-modal">
+    <div class="custom-engine-content">
+      <h3 id="custom-engine-modal-title">Add Custom Search Engine</h3>
+      <input type="text" id="custom-engine-name" placeholder="Engine Name (e.g., My Search)">
+      <input type="text" id="custom-engine-url" placeholder="Search URL (include %s for query)">
+      <input type="text" id="custom-engine-icon" placeholder="Icon URL (optional)">
+      <div class="custom-engine-buttons">
+        <button id="add-custom-engine-btn">Add Engine</button>
+        <button id="cancel-custom-engine">Cancel</button>
+      </div>
     </div>
   </div>
-</div>
 
   <div class="bookmarks" id="bookmarks">
     <a href="javascript:void(0)" class="bookmark" data-url="https://www.youtube.com">
       <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://youtube.com&size=256" alt="YouTube">
       <span>YouTube</span>
     </a>
-    <a href="javascript:void(0)" class="bookmark" data-url=""="https://twitter.com">
+    <a href="javascript:void(0)" class="bookmark" data-url="https://twitter.com">
       <img src="https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://twitter.com&size=256" alt="Twitter">
       <span>Twitter</span>
     </a>
@@ -1774,7 +222,9 @@ function search(input, template) {
     </a>
     <div class="add-bookmark" id="add-bookmark">+ Add Bookmark</div>
   </div>
+
   <div class="rotating-text" id="rotating-text"></div>
+
   <div class="add-bookmark-modal" id="add-bookmark-modal">
     <div class="add-bookmark-content">
       <input type="text" id="bookmark-name" placeholder="Bookmark Name">
@@ -1785,5 +235,404 @@ function search(input, template) {
       </div>
     </div>
   </div>
+
+  <script>
+    "use strict";
+    const uvForm=document.getElementById("uv-form");
+    const uvAddress=document.getElementById("uv-address");
+    const navForm=document.getElementById("nav-bar-form");
+    const navAddress=document.getElementById("nav-bar-address");
+    const searchEngineInputs=document.querySelectorAll(".uv-search-engine");
+    const error=document.getElementById("uv-error");
+    const errorCode=document.getElementById("uv-error-code");
+    const STORAGE_KEYS={BOOKMARKS:"madEggBrowser_bookmarks",SEARCH_ENGINE:"madEggBrowser_searchEngine",SEARCH_ICON:"madEggBrowser_searchIcon",HOME_PAGE:"madEggBrowser_homePage"};
+    var currentTabId=0;var currentTab=0;var tabIds=[];let currentEditingBookmark=null;
+
+    document.addEventListener("DOMContentLoaded",function(){
+      setupEventListeners();
+      updateBackgroundImage();
+      setInterval(universalAdapter,1000);
+      setInterval(updateTimeDate,1000);
+      updateTimeDate();
+      loadBookmarks();
+      loadSearchEngine();
+      type();
+    });
+
+    function setupEventListeners(){
+      uvForm&&uvForm.addEventListener("submit",async e=>{e.preventDefault();await handleSearch(uvAddress,true)});
+      navForm&&navForm.addEventListener("submit",async e=>{e.preventDefault();await handleSearch(navAddress,false)});
+      const addBookmarkButton=document.getElementById("add-bookmark");
+      const saveBookmarkButton=document.getElementById("save-bookmark");
+      addBookmarkButton&&addBookmarkButton.addEventListener("click",()=>{document.getElementById("add-bookmark-modal").style.display="flex"});
+      saveBookmarkButton&&saveBookmarkButton.addEventListener("click",saveBookmark);
+      document.getElementById("show-custom-engine")&&document.getElementById("show-custom-engine").addEventListener("click",showCustomEngineModal);
+      document.getElementById("add-custom-engine-btn")&&document.getElementById("add-custom-engine-btn").addEventListener("click",addCustomEngine);
+      document.getElementById("cancel-custom-engine")&&document.getElementById("cancel-custom-engine").addEventListener("click",function(){document.getElementById("custom-engine-modal").style.display="none"});
+      document.getElementById("cancel-bookmark")&&document.getElementById("cancel-bookmark").addEventListener("click",closeBookmarkModal);
+      document.getElementById("add-bookmark")&&document.getElementById("add-bookmark").addEventListener("click",()=>{currentEditingBookmark=null;document.getElementById("add-bookmark-modal").style.display="flex";document.getElementById("bookmark-name").focus()});
+      navAddress&&navAddress.addEventListener("focus",()=>{navAddress.select()});
+      navAddress&&navAddress.addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();handleSearch(navAddress,false)}});
+      document.querySelectorAll(".dropdown-contentaa a[data-engine]").forEach(engine=>{engine.addEventListener("click",function(e){e.preventDefault();const img=this.querySelector("img");selectEngine(img.src,this.dataset.engine,0)})});
+    }
+
+    function toggleDropdown(index){const dropdown=document.getElementById("engineDropdown-"+index);dropdown.style.display=dropdown.style.display==="block"?"none":"block"}
+    function selectEngine(icon,engine,index){
+      const dropdownBtn=document.querySelector(".search-engine-dropdownaa");
+      const statusMsg=document.getElementById("statusMessage-"+index);
+      const engineName=document.querySelector('#engineDropdown-'+index+' a[data-engine="'+engine+'"]')?.textContent.trim()||"Custom";
+      searchEngineInputs.forEach(input=>{input.value=engine.includes("%s")?engine:engine+"%s"});
+      dropdownBtn.querySelector("img").src=icon;
+      statusMsg.textContent="Searching with "+engineName;
+      document.getElementById("engineDropdown-"+index).style.display="none";
+      saveSearchEngine(icon,engine.includes("%s")?engine:engine+"%s");
+      const tempUrl=engine.includes("%s")?engine.replace("%s",""):engine;
+      const homePageUrl=new URL(tempUrl).origin+"/";
+      localStorage.setItem(STORAGE_KEYS.HOME_PAGE,homePageUrl);
+      document.getElementById("uv-start-page").value=homePageUrl;
+    }
+
+    async function registerSW(){
+      if("serviceWorker" in navigator){
+        try{await navigator.serviceWorker.register("../sw.js?v=10-02-2024",{scope:"/a/"})}catch(e){}
+      }
+    }
+
+    async function handleSearch(inputElement,isMainSearch){
+      const query=inputElement.value.trim();if(!query)return;
+      if(isMainSearch){inputElement.blur()}
+      try{
+        await registerSW();
+        const iframe=getActiveIframe();
+        const url=search(query,document.querySelector(".uv-search-engine").value);
+        const prefix=__uv$config.prefix;
+        const encUrl=prefix+__uv$config.encodeUrl(url);
+        const wispUrl=(location.protocol==="https:"?"wss":"ws")+"://"+location.host+"/wisp/";
+        if(window.connection&&typeof connection.getTransport==="function"&&await connection.getTransport()!=="/epoxy/index.mjs"){
+          await connection.setTransport("/epoxy/index.mjs",[{wisp:wispUrl}]);
+        }
+        const finalUrl="http://localhost:8080"+encUrl;
+        showProxy();
+        if(iframe){iframe.src=finalUrl}else{newTab(finalUrl)}
+        if(!isMainSearch){updateAddressBar()}
+      }catch(err){
+        console.error("Search error:",err);
+        if(error) error.textContent="Failed to process search.";
+        if(errorCode) errorCode.textContent=err.toString();
+      }
+    }
+
+    function updateAddressBar(){
+      const f=getActiveIframe();if(!f)return;
+      if(document.activeElement===navAddress)return;
+      let raw;try{raw=f.contentWindow.location.href}catch{raw=f.src}
+      const prefix=__uv$config.prefix;let enc;if(raw.includes(prefix)){enc=raw.split(prefix)[1]}else{enc=raw}
+      const dec=__uv$config.decodeUrl?__uv$config.decodeUrl(enc):atob(enc);
+      const url=dec.slice(dec.indexOf("http"));
+      navAddress.value=url;
+    }
+
+    function getActiveIframe(){return document.getElementById("frame"+currentTab)}
+    function getTabId(){tabIds.push(currentTabId);return currentTabId++}
+
+    function newTab(url){
+      if(!url){const homePage=localStorage.getItem(STORAGE_KEYS.HOME_PAGE)||"https://google.com/";url=__uv$config.prefix+__uv$config.encodeUrl(homePage)}
+      const el=document.getElementById("tabBarTabs");
+      const tabId=getTabId();
+      el.innerHTML+= '<div class="tabBarTab" id="tab'+tabId+'" onclick="openTab('+tabId+')"><div class="tab-content"><img id="favicon-'+tabId+'" class="tab-favicon"><span id="title-'+tabId+'" class="tab-title">New Tab</span><i class="fa-solid fa-xmark tab-close" onclick="event.stopPropagation();closeTab('+tabId+')"></i></div></div>';
+      const tab=el.lastElementChild;setTimeout(()=>tab.style.marginTop="9px",1);
+      const frame=document.createElement("iframe");frame.src=url;frame.classList.add("tab");frame.id="frame"+tabId;frame.style.cssText="width:100%;height:100%;border:none;display:none;";
+      document.getElementById("frames").append(frame);openTab(tabId);return frame;
+    }
+
+    function openTab(tabId){
+      document.querySelectorAll(".tabBarTab").forEach(t=>t.classList.remove("active"));
+      document.querySelectorAll(".tab").forEach(f=>f.style.display="none");
+      currentTab=tabId;
+      const tabEl=document.getElementById("tab"+tabId);
+      const frameEl=document.getElementById("frame"+tabId);
+      if(tabEl&&frameEl){tabEl.classList.add("active");frameEl.style.display="block";updateAddressBar()}
+    }
+
+    function closeTab(tabId){
+      const tabEl=document.getElementById("tab"+tabId);
+      const frameEl=document.getElementById("frame"+tabId);
+      if(tabEl) tabEl.remove(); if(frameEl) frameEl.remove();
+      const idx=tabIds.indexOf(tabId); if(idx>-1) tabIds.splice(idx,1);
+      if(currentTab===tabId){ if(tabIds.length){openTab(tabIds[tabIds.length-1])} else {newTab()} }
+    }
+
+    function closeAllTabs(){document.getElementById("frames").innerHTML="";document.getElementById("tabBarTabs").innerHTML="";tabIds=[];currentTab=0;newTab()}
+    function showProxy(){document.getElementById("proxy-div").className="show-proxy-div"}
+    function hideProxy(){document.getElementById("proxy-div").className="hide-proxy-div"}
+    function goHome(){closeAllTabs();hideProxy()}
+    function goBack(){const f=getActiveIframe();f&&f.contentWindow.history.back()}
+    function goForward(){const f=getActiveIframe();f&&f.contentWindow.history.forward()}
+    function reloadPage(){const f=getActiveIframe();f&&f.contentWindow.location.reload()}
+    function proxyFullscreen(){const f=getActiveIframe();f&&(f.requestFullscreen?.()||f.webkitRequestFullscreen?.()||f.msRequestFullscreen?.())}
+
+    function windowPopout(){
+      const popup=open("about:blank","_blank");
+      if(!popup||popup.closed){alert("Window blocked. Please allow popups for this site.");return false}
+      const f=getActiveIframe();if(!f)return;
+      const iframe=popup.document.createElement("iframe");
+      iframe.src=f.src;iframe.style.position="fixed";iframe.style.top=iframe.style.bottom=iframe.style.left=iframe.style.right="0";
+      iframe.style.border=iframe.style.outline="none";iframe.style.width=iframe.style.height="100%";
+      popup.document.body.innerHTML="";popup.document.body.appendChild(iframe);return true;
+    }
+
+    function navigateBookmark(url){
+      if(!url){const clickedBookmark=event.currentTarget;url=clickedBookmark.dataset.url}
+      if(!/^https?:\/\//i.test(url)) url="https://"+url;
+      uvAddress.value=url;uvAddress.focus();handleSearch(uvAddress,true);
+    }
+
+    function saveBookmark(){
+      const name=document.getElementById("bookmark-name").value.trim();
+      let url=document.getElementById("bookmark-url").value.trim();
+      if(!name||!url){alert("Please fill in both fields");return}
+      if(!/^https?:\/\//i.test(url)){url="https://"+url}
+      try{
+        new URL(url);
+        const cleanUrl=sanitizeUrl(url);
+        const faviconUrl='https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url='+encodeURIComponent(cleanUrl)+'&size=256';
+        if(currentEditingBookmark){
+          currentEditingBookmark.querySelector("span").textContent=name;
+          currentEditingBookmark.dataset.url=url;
+          currentEditingBookmark.querySelector("img").src=faviconUrl;
+        }else{
+          addBookmarkToDOM(name,url,faviconUrl);
+        }
+        saveBookmarksToStorage();
+        closeBookmarkModal();
+      }catch(e){alert("Please enter a valid URL")}
+    }
+
+    function loadSearchEngine(){
+      const savedEngine=localStorage.getItem(STORAGE_KEYS.SEARCH_ENGINE);
+      const savedIcon=localStorage.getItem(STORAGE_KEYS.SEARCH_ICON);
+      if(savedEngine&&savedIcon){
+        document.querySelectorAll(".uv-search-engine").forEach(input=>{input.value=savedEngine.includes("%s")?savedEngine:savedEngine+"%s"});
+        document.querySelector(".search-engine-dropdownaa img").src=savedIcon;
+        document.getElementById("statusMessage-0").textContent="Searching with "+getEngineName(savedEngine);
+        const tempUrl=savedEngine.includes("%s")?savedEngine.replace("%s",""):savedEngine;
+        const homePageUrl=new URL(tempUrl).origin+"/";
+        localStorage.setItem(STORAGE_KEYS.HOME_PAGE,homePageUrl);
+        document.getElementById("uv-start-page").value=homePageUrl;
+      }
+    }
+
+    function getEngineName(engineUrl){
+      const engineMap={"https://www.google.com/search?q=":"Google","https://search.brave.com/search?q=":"Brave","https://www.bing.com/search?q=":"Bing"};
+      return engineMap[engineUrl]||"Custom";
+    }
+
+    function saveSearchEngine(icon,engine){localStorage.setItem(STORAGE_KEYS.SEARCH_ENGINE,engine);localStorage.setItem(STORAGE_KEYS.SEARCH_ICON,icon)}
+
+    function universalAdapter(){
+      const savedHome=localStorage.getItem(STORAGE_KEYS.HOME_PAGE)||"";
+      const dropdownBtn=document.querySelector(".search-engine-dropdownaa");
+      const statusMsg=document.getElementById("statusMessage-0");
+      for(let id of tabIds){
+        const frame=document.getElementById("frame"+id); if(!frame) continue;
+        let raw; try{raw=frame.contentWindow.location.href}catch{raw=frame.src}
+        const prefix=__uv$config.prefix; let enc; if(raw.includes(prefix)){enc=raw.split(prefix)[1]} else {enc=raw}
+        const dec=__uv$config.decodeUrl?__uv$config.decodeUrl(enc):atob(enc);
+        const url=dec.slice(dec.indexOf("http"));
+        const titleElement=document.getElementById("title-"+id);
+        if(titleElement){titleElement.textContent=(frame.contentDocument&&frame.contentDocument.title)||url.split("/").pop()||"untitled"}
+        const faviconElement=document.getElementById("favicon-"+id);
+        if(faviconElement){faviconElement.src='https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url='+encodeURIComponent(url)+'&size=256'}
+        if(id===currentTab&&document.activeElement!==navAddress){navAddress.value=url;if(url===savedHome){const savedIcon=localStorage.getItem(STORAGE_KEYS.SEARCH_ICON);dropdownBtn.querySelector("img").src=savedIcon;statusMsg.textContent="Home Page"}}
+      }
+    }
+
+    function updateTimeDate(){
+      const date=new Date();
+      const options={weekday:"long",year:"numeric",month:"long",day:"numeric",hour:"2-digit",minute:"2-digit",second:"2-digit"};
+      document.getElementById("time-date").textContent=date.toLocaleDateString("en-US",options).replace(" at",",");
+    }
+
+    function SHS(){
+      const sites=["https://docs.google.com","https://drive.google.com","https://classroom.google.com","https://classroom.google.com/u/1/a/not-turned-in/all","https://slides.google.com","https://google.com","https://youtube.com","https://www.edpuzzle.com","https://www.gmail.com","https://sheets.google.com","https://www.google.com/search?q=calculator"];
+      sites.forEach(site=>window.open(site));
+    }
+
+    function AB(){
+      let inFrame;try{inFrame=window!==top}catch(e){inFrame=true}
+      if(!inFrame&&!navigator.userAgent.includes("Firefox")){
+        const popup=open("about:blank","_blank");
+        if(!popup||popup.closed){alert("Window blocked. Please allow popups for this site.")}
+        else{
+          const doc=popup.document;
+          const iframe=doc.createElement("iframe");
+          const link=doc.createElement("link");
+          const name=localStorage.getItem("name")||"Home";
+          const icon=localStorage.getItem("icon")||"https://raw.githubusercontent.com/UseInterstellar/Interstellar/refs/heads/main/static/favicon.ico";
+          doc.title=name;link.rel="icon";link.href=icon;
+          iframe.src=location.href;iframe.style.position="fixed";iframe.style.top=iframe.style.bottom=iframe.style.left=iframe.style.right="0";
+          iframe.style.border=iframe.style.outline="none";iframe.style.width=iframe.style.height="100%";
+          const script=doc.createElement("script");
+          script.textContent='window.onbeforeunload=function(event){const confirmationMessage="Leave Site?";(event||window.event).returnValue=confirmationMessage;return confirmationMessage;};';
+          doc.head.appendChild(link);doc.body.appendChild(iframe);doc.head.appendChild(script);
+        }
+      }
+    }
+
+    const rotatingText=document.getElementById("rotating-text");
+    const messages=["Your phone's at 1%. Find a charger ASAP.","Still waiting for a reply? Classic.","Check your phone again. Yep, still no new texts.","You texted them, they didn't reply. Story of our lives.","Refresh again. It's not gonna change, but okay.","How is it that we only notice how tired we are once we sit down?"];
+    let currentMessageIndex=0;let currentCharIndex=0;let isDeleting=false;const typingSpeed=100;const pauseBetween=2000;
+
+    function type(){
+      const currentMessage=messages[currentMessageIndex];
+      if(isDeleting){
+        rotatingText.textContent=currentMessage.substring(0,currentCharIndex--);
+        if(currentCharIndex<0){isDeleting=false;currentMessageIndex=(currentMessageIndex+1)%messages.length;setTimeout(type,500)} else {setTimeout(type,typingSpeed/2)}
+      }else{
+        rotatingText.textContent=currentMessage.substring(0,currentCharIndex++);
+        if(currentCharIndex>currentMessage.length){isDeleting=true;setTimeout(type,pauseBetween)} else {setTimeout(type,typingSpeed)}
+      }
+    }
+
+    function addCustomEngine(){
+      const customName=document.getElementById("custom-engine-name").value.trim();
+      const customUrl=document.getElementById("custom-engine-url").value.trim();
+      const customIcon=document.getElementById("custom-engine-icon").value.trim()||('https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url='+encodeURIComponent(customUrl.split("?")[0].split("/")[2])+'&size=256');
+      const editMode=document.getElementById("custom-engine-modal-title").textContent==="Edit Search Engine";
+      const originalUrl=document.getElementById("custom-engine-modal").dataset.originalUrl;
+      if(!customName||!customUrl){alert("Please provide both a name and URL for the custom search engine");return}
+      if(!customUrl.includes("%s")){if(!confirm('Your URL doesn\\'t contain a "%s" placeholder. The search term will be appended to the end. Is this okay?')){return}}
+      const dropdownContent=document.querySelector(".dropdown-contentaa");
+      if(editMode){
+        const existingEngine=document.querySelector('.dropdown-contentaa a[data-engine="'+originalUrl+'"]');
+        if(existingEngine){
+          existingEngine.setAttribute("data-engine",customUrl.includes("%s")?customUrl:customUrl+"%s");
+          existingEngine.innerHTML='<img src="'+customIcon+'" alt="'+customName+'">'+customName+'<i class="fa-solid fa-pen edit-engine" onclick="event.stopPropagation();editEngine(this.parentNode)"></i><i class="fa-solid fa-trash delete-engine" onclick="event.stopPropagation();deleteEngine(this.parentNode)"></i>';
+        }
+      }else{
+        const newEngine=document.createElement("a");
+        newEngine.href="javascript:void(0);";
+        newEngine.setAttribute("data-engine",customUrl.includes("%s")?customUrl:customUrl+"%s");
+        newEngine.onclick=function(){selectEngine(customIcon,customUrl.includes("%s")?customUrl:customUrl+"%s",0)};
+        newEngine.innerHTML='<img src="'+customIcon+'" alt="'+customName+'">'+customName+'<i class="fa-solid fa-pen edit-engine" onclick="event.stopPropagation();editEngine(this.parentNode)"></i><i class="fa-solid fa-trash delete-engine" onclick="event.stopPropagation();deleteEngine(this.parentNode)"></i>';
+        dropdownContent.insertBefore(newEngine,document.querySelector(".add-custom-engine"));
+      }
+      document.getElementById("custom-engine-modal").style.display="none";
+      document.getElementById("custom-engine-name").value="";
+      document.getElementById("custom-engine-url").value="";
+      document.getElementById("custom-engine-icon").value="";
+    }
+
+    function deleteEngine(engineElement){if(confirm("Are you sure you want to delete this search engine?")){engineElement.remove()}}
+    function showCustomEngineModal(){document.getElementById("custom-engine-modal").style.display="flex"}
+    function saveBookmarksToStorage(){
+      const bookmarks=[];
+      document.querySelectorAll(".bookmark:not(#add-bookmark)").forEach(bookmark=>{bookmarks.push({name:bookmark.querySelector("span").textContent,url:bookmark.dataset.url,icon:bookmark.querySelector("img").src})});
+      localStorage.setItem(STORAGE_KEYS.BOOKMARKS,JSON.stringify(bookmarks));
+    }
+
+    function loadBookmarks(){
+      const savedBookmarks=localStorage.getItem(STORAGE_KEYS.BOOKMARKS);
+      document.querySelectorAll(".bookmark:not(#add-bookmark)").forEach(bm=>bm.remove());
+      if(savedBookmarks){
+        try{JSON.parse(savedBookmarks).forEach(bookmark=>{addBookmarkToDOM(bookmark.name,bookmark.url,bookmark.icon)})}
+        catch(e){console.error("Error loading bookmarks:",e);loadDefaultBookmarks()}
+      }else{loadDefaultBookmarks()}
+    }
+
+    function loadDefaultBookmarks(){
+      const defaultBookmarks=[
+        {name:"YouTube",url:"https://www.youtube.com",icon:"https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://youtube.com&size=256"},
+        {name:"Twitter",url:"https://twitter.com",icon:"https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://twitter.com&size=256"},
+        {name:"Discord",url:"https://discord.com",icon:"https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://discord.com&size=256"},
+        {name:"GeForce Now",url:"https://www.nvidia.com/en-us/geforce-now/",icon:"https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://nvidia.com&size=256"}
+      ];
+      defaultBookmarks.forEach(bookmark=>{addBookmarkToDOM(bookmark.name,bookmark.url,bookmark.icon)});
+    }
+
+    function addBookmarkToDOM(name,url,iconUrl){
+      const bookmarksContainer=document.getElementById("bookmarks");
+      const bookmark=document.createElement("a");
+      bookmark.href="#";bookmark.className="bookmark";bookmark.dataset.url=url;
+      let faviconUrl=iconUrl;
+      if(!iconUrl){const cleanUrl=sanitizeUrl(url);faviconUrl='https://t3.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url='+encodeURIComponent(cleanUrl)+'&size=256'}
+      bookmark.innerHTML='<img src="'+faviconUrl+'" alt="'+name+'"><span>'+name+'</span><button class="edit-bookmark"><i class="fa-solid fa-pen"></i></button><button class="delete-bookmark"><i class="fa-solid fa-trash"></i></button>';
+      bookmarksContainer.insertBefore(bookmark,document.getElementById("add-bookmark"));
+      const editBtn=bookmark.querySelector(".edit-bookmark");
+      const deleteBtn=bookmark.querySelector(".delete-bookmark");
+      editBtn.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();editBookmark(bookmark)});
+      deleteBtn.addEventListener("click",e=>{e.preventDefault();e.stopPropagation();if(confirm("Delete this bookmark?")){bookmark.remove();saveBookmarksToStorage()}});
+      bookmark.addEventListener("click",e=>{if(!e.target.closest(".edit-bookmark")&&!e.target.closest(".delete-bookmark")){e.preventDefault();navigateBookmark(url)}});
+    }
+
+    function setHomePage(url){
+      if(!url){
+        const iframe=getActiveIframe();
+        if(iframe){try{url=iframe.contentWindow.location.href}catch(e){url=iframe.src}}
+      }
+      if(!url.startsWith("http://")&&!url.startsWith("https://")){url="https://"+url}
+      try{new URL(url);localStorage.setItem(STORAGE_KEYS.HOME_PAGE,url);return true}catch(e){console.error("Invalid URL:",e);alert("Invalid URL format. Please enter a valid web address.");return false}
+    }
+
+    function editBookmark(bookmarkElement){
+      currentEditingBookmark=bookmarkElement;
+      document.getElementById("bookmark-name").value=bookmarkElement.querySelector("span").textContent;
+      document.getElementById("bookmark-url").value=bookmarkElement.dataset.url;
+      document.getElementById("add-bookmark-modal").style.display="flex";
+      document.getElementById("bookmark-name").focus();
+    }
+
+    function editEngine(engineElement){
+      const name=engineElement.textContent.trim();
+      const url=engineElement.dataset.engine;
+      const icon=engineElement.querySelector("img").src;
+      document.getElementById("custom-engine-modal-title").textContent="Edit Search Engine";
+      document.getElementById("custom-engine-name").value=name;
+      document.getElementById("custom-engine-url").value=url;
+      document.getElementById("custom-engine-icon").value=icon;
+      document.getElementById("custom-engine-modal").dataset.originalUrl=url;
+      document.getElementById("custom-engine-modal").style.display="flex";
+    }
+
+    function closeBookmarkModal(){
+      document.getElementById("add-bookmark-modal").style.display="none";
+      document.getElementById("bookmark-name").value="";
+      document.getElementById("bookmark-url").value="";
+      currentEditingBookmark=null;
+    }
+
+    function sanitizeUrl(url){
+      let cleanUrl=url.replace(/^(https?:)?\/\//,"");cleanUrl=cleanUrl.split("/")[0];
+      if(!cleanUrl.startsWith("http://")&&!cleanUrl.startsWith("https://")){cleanUrl="https://"+cleanUrl}
+      return cleanUrl;
+    }
+
+    function updateBackgroundImage(){
+      const savedBg=localStorage.getItem("backgroundImage");
+      if(savedBg){document.documentElement.style.setProperty("--background-image","url("+savedBg+")")}
+    }
+
+    lucide.createIcons();
+
+    (function(){
+      const proxyDiv=document.getElementById("proxy-div");
+      const navbar=document.querySelector(".navbar");
+      if(!proxyDiv||!navbar) return;
+      const observer=new MutationObserver(()=>{if(proxyDiv.classList.contains("show-proxy-div")){navbar.style.display="none"}else{navbar.style.display="flex"}});
+      observer.observe(proxyDiv,{attributes:true,attributeFilter:["class"]});
+    })();
+
+    window.addEventListener("message",event=>{
+      if(event.data?.action==="getLocalStorage"){
+        event.source.postMessage({key:event.data.key,value:localStorage.getItem(event.data.key)},event.origin);
+      }
+    });
+
+    function search(input,template){
+      try{return new URL(input).toString()}catch(err){}
+      try{const url=new URL("http://"+input);if(url.hostname.includes(".")) return url.toString()}catch(err){}
+      return template.replace("%s",encodeURIComponent(input));
+    }
+  </script>
 </body>
 </html>
