@@ -317,7 +317,7 @@
         if(window.connection&&typeof connection.getTransport==="function"&&await connection.getTransport()!=="/epoxy/index.mjs"){
           await connection.setTransport("/epoxy/index.mjs",[{wisp:wispUrl}]);
         }
-        const finalUrl="http://localhost:8080"+encUrl;
+        const finalUrl="https://madegg-proxy.vercel.app"+encUrl;
         showProxy();
         if(iframe){iframe.src=finalUrl}else{newTab(finalUrl)}
         if(!isMainSearch){updateAddressBar()}
