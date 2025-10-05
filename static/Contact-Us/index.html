@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Auto Type Button</title>
+</head>
+<body>
+<button id="goButton">Go to / and Type</button>
+<script>
+(function(){
+const BUTTON_ID = 'goButton';
+const STORAGE_KEY = 'autotype_payload';
+const DEFAULT_TEXT = 'Hello from JavaScript!';
+const DEFAULT_SELECTOR = "input[type='text'], textarea, [contenteditable='true']";
+function setPayload(text, selector, delay){
+  const p = {text, selector, delay};
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(p));
+}
+function getPayload(){
+  const s = sessionStorage.getItem(STORAGE_KEY);
+  if(!s) return null;
+  try { return JSON.parse(s); } catch(e) { return null; }
+}
+async function waitForElement(selector, timeout){
+  const el = document.querySelector(selector);
+  if(el) return el;
+  const start = Date.now();
+  return new Promise((resolve, reject) => {
+    const mo = new MutationObserver(() => {
+      const found = document.querySelector(selector);
+      if(found){
+        mo.disconnect();
+        resolve(found);
+      } else if(Date.now() - start > timeout){
+        mo.disconnect();
+        reject(new Error('timeout'));
+      }
+    });
+    mo.observe(document.documentElement, {childList:true, subtree:true, attributes:true});
+    setTimeout(()=>{ mo.disconnect(); reject(new Error('timeout')); }, timeout);
+  });
+}
+function dispatchKey(el, type, key){
+  try{
+    const e = new KeyboardEvent(type, {key, bubbles:true, cancelable:true});
+    el.dispatchEvent(e);
+  } catch(e){}
+}
+function dispatchInput(el){
+  try{
+    const e = new Event('input', {bubbles:true});
+    el.dispatchEvent(e);
+  } catch(e){}
+}
+function dispatchChange(el){
+  try{
+    const e = new Event('change', {bubbles:true});
+    el.dispatchEvent(e);
+  } catch(e){}
+}
+async function typeTextInto(el, text, delay){
+  el.focus();
+  if(el.isContentEditable){
+    let cur = el.textContent || '';
+    for(const ch of text){
+      dispatchKey(el, 'keydown', ch);
+      cur += ch;
+      el.textContent = cur;
+      dispatchInput(el);
+      dispatchKey(el, 'keyup', ch);
+      await new Promise(r => setTimeout(r, delay));
+    }
+    dispatchChange(el);
+    return;
+  }
+  for(const ch of text){
+    dispatchKey(el, 'keydown', ch);
+    const start = el.selectionStart || el.value.length;
+    const before = el.value.slice(0, start);
+    const after = el.value.slice(el.selectionEnd || el.value.length);
+    el.value = before + ch + after;
+    const caret = before.length + 1;
+    try{ el.setSelectionRange(caret, caret); } catch(e){}
+    dispatchInput(el);
+    dispatchKey(el, 'keyup', ch);
+    await new Promise(r => setTimeout(r, delay));
+  }
+  dispatchChange(el);
+}
+document.addEventListener('DOMContentLoaded', async () => {
+  const payload = getPayload();
+  if(location.pathname === '/' && payload){
+    try{
+      const sel = payload.selector || DEFAULT_SELECTOR;
+      const delay = typeof payload.delay === 'number' ? payload.delay : 100;
+      const el = await waitForElement(sel, 8000);
+      await typeTextInto(el, payload.text || DEFAULT_TEXT, delay);
+    }catch(e){}
+    sessionStorage.removeItem(STORAGE_KEY);
+    return;
+  }
+  const btn = document.getElementById(BUTTON_ID);
+  if(btn){
+    btn.addEventListener('click', () => {
+      setPayload(DEFAULT_TEXT, DEFAULT_SELECTOR, 100);
+      location.href = '/';
+    });
+  }
+});
+})();
+</script>
+</body>
+</html>
